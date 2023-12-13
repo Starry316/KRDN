@@ -7,7 +7,7 @@ from tqdm import tqdm
 from time import time
 from prettytable import PrettyTable
 from torch.utils.data import Dataset, DataLoader, random_split
-from utils.parser_test import parse_args
+from utils.parser import parse_args
 from utils.data_loader import load_data
 from modules.KRDN import Recommender
 from utils.evaluate import test
