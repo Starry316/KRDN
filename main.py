@@ -145,7 +145,7 @@ if __name__ == '__main__':
                 [epoch, train_e_t - train_s_t, test_e_t - test_s_t, loss, ret['recall'], ret['ndcg'], ret['precision'], ret['hit_ratio']]
             )
             print(train_res)
-            f = open('./result/{}.txt'.format(args.dataset), 'a+')
+            f = open('./result/{}.test.txt'.format(args.dataset), 'a+')
             f.write(str(train_res) + '\n')
             f.close()
             STLogger.info('writing done here')
