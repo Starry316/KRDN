@@ -25,6 +25,7 @@ python main.py --dataset alibaba-ifashion --lr 0.0001 --context_hops 3 --num_neg
 - Yelp2018 dataset
 ```
 python main.py --dataset yelp2018 --lr 0.0001 --context_hops 2 --num_neg_sample 400 --margin 0.8 --max_iter 1
+python test.py --dataset yelp2018 --lr 0.0001 --context_hops 2 --num_neg_sample 400 --margin 0.8 --max_iter 1 --load_path model_para/model_yelp2018.ckpt
 ```
 
 - Last-FM dataset

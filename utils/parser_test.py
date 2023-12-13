@@ -2,7 +2,7 @@ import argparse
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="KRDN")
+    parser = argparse.ArgumentParser(description="KRDN_test")
 
     # ===== dataset ===== #
     parser.add_argument("--dataset", nargs="?", default="yelp2018", help="Choose a dataset:[last-fm,alibaba-ifashion,yelp2018]")
