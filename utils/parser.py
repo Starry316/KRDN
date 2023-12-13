@@ -40,6 +40,6 @@ def parse_args():
 
     # ===== save model ===== #
     parser.add_argument("--save", type=bool, default=False, help="save model or not")
-    parser.add_argument("--out_dir", type=str, default="model_para", help="output directory for model")
+    parser.add_argument("--out_dir", type=str, default="./model_para/", help="output directory for model")
 
     return parser.parse_args()
