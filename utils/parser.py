@@ -6,6 +6,7 @@ def parse_args():
 
     # ===== dataset ===== #
     parser.add_argument("--dataset", nargs="?", default="yelp2018", help="Choose a dataset:[last-fm,alibaba-ifashion,yelp2018]")
+    parser.add_argument("--suffix", nargs="?", default="", help="suffix")
     parser.add_argument("--data_path", nargs="?", default="data/", help="Input data path.")
 
     # ===== train ===== #

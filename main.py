@@ -91,6 +91,9 @@ if __name__ == '__main__':
     stopping_step = 0
     should_stop = False
 
+    if not os.path.exists(args.out_dir):
+        os.makedirs(args.out_dir)
+
     print("start training ...")
     iter = math.ceil(len(train_cf_pairs) / args.batch_size)
     for epoch in range(args.epoch):
@@ -128,7 +131,7 @@ if __name__ == '__main__':
         STLogger.info(f'saving model to {args.out_dir}')
         if not os.path.exists(args.out_dir):
             mkdir(args.out_dir)
-        saveModel(os.path.join(args.out_dir, f'model_{args.dataset}.full.ckpt'), model, optimizer, None, epoch=epoch)
+        saveModel(os.path.join(args.out_dir, f'model_{args.dataset + args.suffix}.full.ckpt'), model, optimizer, None, epoch=epoch)
         if epoch % 5 == 0 or epoch == 1:
             """testing"""
             model.eval()
@@ -145,7 +148,7 @@ if __name__ == '__main__':
                 [epoch, train_e_t - train_s_t, test_e_t - test_s_t, loss, ret['recall'], ret['ndcg'], ret['precision'], ret['hit_ratio']]
             )
             print(train_res)
-            f = open('./result/{}.test.txt'.format(args.dataset), 'a+')
+            f = open('./result/{}.test.txt'.format(args.dataset + args.suffix), 'a+')
             f.write(str(train_res) + '\n')
             f.close()
             STLogger.info('writing done here')
@@ -159,7 +162,7 @@ if __name__ == '__main__':
 
             """save model"""
             if ret['recall'][0] == cur_best and args.save:
-                torch.save(model.state_dict(), args.out_dir + 'model_' + args.dataset + '.ckpt')
+                torch.save(model.state_dict(), args.out_dir + 'model_' + args.dataset + args.suffix + '.ckpt')
 
         else:
             print('using time %.4f, training loss at epoch %d: %.4f' % (train_e_t - train_s_t, epoch, loss))
